@@ -1,0 +1,17 @@
+
+
+textarea {
+	font-family: monospace;
+
+	color: rgb(39, 39, 39);
+	padding: 20px;
+	font-size: 18px;
+	border: 0 none;
+	margin: 0;
+	outline: 0 none;
+	height: 90vh;
+	width: 1700px;
+	background-color: rgb(238, 238, 238);
+	
+	
+}

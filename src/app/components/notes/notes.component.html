@@ -1,0 +1,8 @@
+
+<app-add-note (onSubmit)="addNote($event)"></app-add-note>
+
+<app-note-item *ngFor="let note of notes"
+	[note] = "note"
+	(onSelect)="onSelect(note)"
+	(onDelete)="onDelete(note)"
+></app-note-item>

@@ -1,0 +1,22 @@
+.header-elt {
+	height: 80px;
+	background-color: #55538f;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	background-color: lightgray;
+	
+}
+.left-sidebar {
+	min-width: 400px;
+	padding: 20px 10px;
+	font-size: 18px;
+	background-color: rgb(44, 44, 44);
+}
+.main-content {
+	font-size: 18px;
+	box-sizing: border-box;
+	font-size: 20px;
+}
