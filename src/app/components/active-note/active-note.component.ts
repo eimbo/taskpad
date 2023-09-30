@@ -33,21 +33,35 @@ export class ActiveNoteComponent {
 	private unsubscribe = new Subject<void>();
 	
 	constructor(private noteService: NoteService, private formBuilder: FormBuilder) {
-		//this.noteService.getNotes().subscribe((x) => this.note = x[0])
+		console.log('active-note.ts > constructor')
+
 		this.form = this.formBuilder.group({
 			text: ""
 		});
+
 	}
 
 	ngOnInit(): void {
+		// this method only called once 
+
+		console.log('active-note.ts > ngOnInit')
+
+
 		this.noteService.currNote$.subscribe( n => {
+			if ( n ){
+				console.log('n')
+			} else {
+				console.log('not n')
+			}
 			this.note = n
-			//this.currNoteText = this.note.text
+			// this only runs once
+		
 		});
 
 		this.formBuilder.group({
 			text: []
 		});
+
 
 		this.form.valueChanges.pipe(
 			debounceTime(500),

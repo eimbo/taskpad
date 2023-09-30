@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NoteService } from '../../services/note.service';
 import { Observable } from 'rxjs';
 import { Note } from '../../Note';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-notes',
@@ -17,9 +18,7 @@ export class NotesComponent {
 	
 	ngOnInit(): void {
 		// this.notes = this.noteService.getNotes(); // removed because we want to use Observables 
-		this.noteService.getNotes().subscribe((notes) => this.notes = notes ); // usinb Observables
-
-		
+		this.noteService.getNotes().subscribe((notes) => this.notes = notes ); // using Observables
 	}
 
 	deleteNote(note: Note) {
@@ -28,12 +27,12 @@ export class NotesComponent {
 	}
 
 	addNote(note: Note) {
-		this.noteService.addNote(note)
-		this.notes?.push(note)
+
 	}
 	
 	onSelect(note: Note) {
-		console.log(12333)
+		
+		console.log('notes.ts > onSelect. publishing note to noteService: ' + note.title)
 		this.noteService.publishCurrNote(note);
 	}
 
@@ -42,5 +41,17 @@ export class NotesComponent {
 		this.notes = this.notes?.filter((n) => n.title !== note.title)
 	}
 
+	addNewNote(value: string) {
+		if(value.trim() == ''){
+			return 
+		}
+		let note: Note = {id: uuidv4(), title: value, text: ''}
+		console.log(value)
+		
+		this.noteService.addNote(note)
+		this.notes?.push(note)
+		
+		
+	}
 
 }

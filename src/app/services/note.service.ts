@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../Note';
 import { Observable, Subject, of } from 'rxjs';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
 	providedIn: 'root'
@@ -15,13 +16,13 @@ export class NoteService {
 	
 	constructor() {
 		//localStorage.clear()
-
+		console.log('note.service.ts > constructor')
 		if (localStorage.getItem("notes") == null) {
-			console.log('local storage null. setting storage')
+			console.log('local storage null. setting storage and init \'Getting Started\'')
 
 			let temp: Note[] = [
 				{
-					'id': 1,
+					'id': uuidv4(),
 					'title': 'Getting Started',
 					'text': 'Welcome to TaskPad!',
 				},
@@ -33,12 +34,16 @@ export class NoteService {
 		}
 
 
+	}
+
+	ngOnInit() {
+		// NEVER RUNS
+		console.log('note.service.ts > ngOnInit')
 
 	}
 
-	ngOnInit() {}
-
 	publishCurrNote(note: Note){
+		console.log('publishCurrNote: ' + note.title)
 		this.currNote.next(note);
 	}
 
@@ -59,32 +64,38 @@ export class NoteService {
 
 
 	deleteNote(note: Note) {
+		console.log('deleteNote: ' + note.title)
 		let store = localStorage.getItem("notes") || '{}'
 		let x = JSON.parse(store) 
-		x = x.filter((y: Note) => y.title !== note.title)
+		x = x.filter((y: Note) => y.id !== note.id)
 		localStorage.setItem("notes", JSON.stringify(x))
 	}
 
-	updateNote(id: any, text: string): string {
-		console.log(id + ": " + text)
+	updateNote(id: string, text: string): string {
+
 
 		let store = localStorage.getItem("notes") || '{}'
 		let x = JSON.parse(store) 
 		x.filter( (n: any) => {
-			if (n.id == id ) {
+			if (n.id === id ) {
+	
 				n.text = text
+				console.log('updateNote ' + n.title)
+			
+
 			}
 		})
 
 		localStorage.setItem("notes", JSON.stringify(x))
 		
-		localStorage.setItem("notes", JSON.stringify(x))
+		//localStorage.setItem("notes", JSON.stringify(x))
 		
 		return ''
 	
 	}
 
 	addNote(note: Note) {
+		console.log('addNote: ' + note.title)
 		let store = localStorage.getItem("notes") || '{}'
 		let x = JSON.parse(store) 
 		x.push(note)

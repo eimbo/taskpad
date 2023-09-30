@@ -1,6 +1,11 @@
-.header-elt {
-	height: 80px;
+header {
+	height: 60px;
 	background-color: #55538f;
+}
+h1 {
+	margin-top: 25px;
+	margin-left: 50px;
+	
 }
 
 .container {
@@ -10,7 +15,7 @@
 	
 }
 .left-sidebar {
-	min-width: 400px;
+	min-width: 370px;
 	padding: 20px 10px;
 	font-size: 18px;
 	background-color: rgb(44, 44, 44);

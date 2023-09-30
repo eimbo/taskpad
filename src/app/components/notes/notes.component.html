@@ -1,5 +1,6 @@
 
-<app-add-note (onSubmit)="addNote($event)"></app-add-note>
+<input id="new-note-input" #title placeholder="Add New Note" />
+<button id="new-note-button" type="button" (click)="addNewNote(title.value); title.value = ''">Add+</button>
 
 <app-note-item *ngFor="let note of notes"
 	[note] = "note"

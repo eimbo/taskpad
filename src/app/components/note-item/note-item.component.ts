@@ -12,6 +12,8 @@ export class NoteItemComponent {
 	@Output() onSelect: EventEmitter<Note> = new EventEmitter();
 	@Output() onDelete: EventEmitter<Note> = new EventEmitter();
 
+	isSelected: boolean = false;
+
 	constructor() {}
 
 	delete() {

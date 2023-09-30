@@ -1,6 +1,5 @@
 
-<div class="note-item" (click)="select()">
+<div class="note-item" (click)="select()"  [ngClass]="isSelected ? 'selected' : 'notselcted'">
 	<div>{{note.title}}</div>
 	<button id="remove-button" (click)="delete()">X</button>
-
 </div>
