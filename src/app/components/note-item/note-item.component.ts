@@ -9,11 +9,11 @@ import { Note } from '../../Note';
 })
 export class NoteItemComponent {
 	@Input() note!: Note;
+	@Input() isSelected: boolean = false;
 	@Output() onSelect: EventEmitter<Note> = new EventEmitter();
 	@Output() onDelete: EventEmitter<Note> = new EventEmitter();
 
-	isSelected: boolean = false;
-
+	
 	constructor() {}
 
 	delete() {
@@ -23,8 +23,5 @@ export class NoteItemComponent {
 	select() {
 		this.onSelect.emit(this.note);
 	}
-
-
-
 
 }

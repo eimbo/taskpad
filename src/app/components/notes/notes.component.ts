@@ -12,6 +12,8 @@ import { v4 as uuidv4 } from 'uuid';
 export class NotesComponent {
 	notes!: Note[];
 
+	currSelectedNoteId: string = '';
+
 	constructor(private noteService: NoteService) {
 		
 	}
@@ -25,22 +27,24 @@ export class NotesComponent {
 		this.noteService.deleteNote(note)
 		this.notes?.filter((n) => n.id !== note.id)
 	}
-
-	addNote(note: Note) {
-
-	}
 	
 	onSelect(note: Note) {
-		
+		this.currSelectedNoteId = note.id;
 		console.log('notes.ts > onSelect. publishing note to noteService: ' + note.title)
 		this.noteService.publishCurrNote(note);
 	}
 
 	onDelete(note: Note){
-		this.noteService.deleteNote(note)
-		this.notes = this.notes?.filter((n) => n.title !== note.title)
+		if(confirm("Are you sure you want to delete \'" + note.title + "\'") == true) {
+
+			this.noteService.deleteNote(note)
+			this.notes = this.notes?.filter((n) => n.title !== note.title)
+		}
 	}
 
+	isSelected(id: string) {
+		return this.currSelectedNoteId == id ? true : false;
+	}
 	addNewNote(value: string) {
 		if(value.trim() == ''){
 			return 
