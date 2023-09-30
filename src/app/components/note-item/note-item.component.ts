@@ -13,7 +13,6 @@ export class NoteItemComponent {
 	@Output() onSelect: EventEmitter<Note> = new EventEmitter();
 	@Output() onDelete: EventEmitter<Note> = new EventEmitter();
 
-	
 	constructor() {}
 
 	delete() {
@@ -23,5 +22,7 @@ export class NoteItemComponent {
 	select() {
 		this.onSelect.emit(this.note);
 	}
+
+
 
 }

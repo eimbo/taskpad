@@ -2,7 +2,6 @@
 * {
 	margin: 0;
 	box-sizing: border-box;
-	
 }
 *::before, *::after {
 	box-sizing: border-box;
@@ -10,6 +9,7 @@
 
 body {
 	font-family:Geneva,sans-serif;
-	background-color: #55538f;
+	background-color: slateblue; /* #55538f; */
+
 	color: white;
 }

@@ -1,5 +1,5 @@
 
 <div class="note-item" (click)="select()"  [ngClass]="isSelected ? 'selected' : 'notselcted'">
-	<div>{{note.title}}</div>
+	{{ note.title.slice(0, 36) }}
 	<button id="remove-button" (click)="delete()">X</button>
 </div>

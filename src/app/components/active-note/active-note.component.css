@@ -1,11 +1,11 @@
 
 
 textarea {
-	font-family: monospace;
+	font-family:"courier new";
 
 	color: rgb(39, 39, 39);
 	padding: 20px;
-	font-size: 18px;
+	font-size: 16px;
 	border: 0 none;
 	margin: 0;
 	outline: 0 none;
