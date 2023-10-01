@@ -1,10 +1,10 @@
-.someform {
+.active-note-form {
 	height: 100%;
 }
 
 textarea {
 	font-family:"courier new";
-
+	resize: none;
 	color: rgb(39, 39, 39);
 	padding: 20px;
 	font-size: 16px;
