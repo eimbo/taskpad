@@ -1,6 +1,6 @@
 header {
 	height: 60px;
-	background-color: slateblue; /* #55538f; */
+	background-color: rgb(81, 68, 167); /* #55538f; */
 }
 h1 {
 	margin-left: 50px;
@@ -14,9 +14,9 @@ h1 {
 	
 }
 .left-sidebar {
-	width: 350px;
+	width: 375px;
 	padding: 20px 10px;
-	background-color: rgb(44, 44, 44);
+	background-color: rgb(46, 46, 46);
 }
 .main-content {
 	font-size: 18px;
@@ -24,4 +24,10 @@ h1 {
 	overflow-x:hidden;  
 	overflow-y:auto;
 	
+}
+
+@media only screen and (min-width: 2000px) {
+	.left-sidebar {
+		width: 475px;
+	}
 }
