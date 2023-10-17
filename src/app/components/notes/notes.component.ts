@@ -22,23 +22,21 @@ export class NotesComponent {
 		// this.notes = this.noteService.getNotes(); // removed because we want to use Observables 
 		this.noteService.getNotes().subscribe((notes) => this.notes = notes ); // using Observables
 	}
-
-	deleteNote(note: Note) {
-		this.noteService.deleteNote(note)
-		this.notes?.filter((n) => n.id !== note.id)
-	}
 	
 	onSelect(note: Note) {
 		this.currSelectedNoteId = note.id;
-		console.log('notes.ts > onSelect. publishing note to noteService: ' + note.title)
+		//console.log('notes.ts > onSelect. publishing note to noteService: ' + note.title)
 		this.noteService.publishCurrNote(note);
 	}
 
 	onDelete(note: Note){
 		if(confirm("Are you sure you want to delete \'" + note.title + "\'") == true) {
+			// remove text from main content
+			note.text = '';
+			this.noteService.publishCurrNote(note);
 
 			this.noteService.deleteNote(note)
-			this.notes = this.notes?.filter((n) => n.title !== note.title)
+			this.notes = this.notes?.filter((n) => n.id !== note.id)
 		}
 	}
 
@@ -50,7 +48,7 @@ export class NotesComponent {
 			return 
 		}
 		let note: Note = {id: uuidv4(), title: value, text: ''}
-		console.log(value)
+		//console.log(value)
 		
 		this.noteService.addNote(note)
 		this.notes?.push(note)
