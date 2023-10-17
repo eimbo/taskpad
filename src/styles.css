@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+	--blue: rgb(100, 83, 211);
+	--red: rgb(219, 23, 23);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -17,4 +23,3 @@ body {
 	font-family:Geneva,sans-serif;
 	color: white;
 }
-

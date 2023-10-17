@@ -1,6 +1,6 @@
 header {
 	height: 60px;
-	background-color: rgb(81, 68, 167); /* #55538f; */
+	background-color: var(--blue); 
 }
 h1 {
 	margin-left: 50px;

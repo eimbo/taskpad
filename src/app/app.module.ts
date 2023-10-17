@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { NoteItemComponent } from './components/note-item/note-item.component';
 import { ActiveNoteComponent } from './components/active-note/active-note.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ActiveNoteComponent } from './components/active-note/active-note.compon
     BrowserModule,
 	FormsModule,
 	ReactiveFormsModule,
+ 	FontAwesomeModule,
 	
   ],
   providers: [],

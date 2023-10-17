@@ -1,5 +1,9 @@
 
 <div class="note-item" (click)="select()"  [ngClass]="isSelected ? 'selected' : 'notselcted'">
 	{{ note.title.slice(0, 36) }}
-	<button id="remove-button" (click)="delete()">X</button>
+	
+	<div id="delete">
+		<fa-icon [icon]="faTimes" size="lg" (click)="delete()"></fa-icon>
+	</div>
+	
 </div>

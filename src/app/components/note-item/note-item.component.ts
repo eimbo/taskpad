@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from '../../Note';
-
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-note-item',
@@ -12,6 +12,8 @@ export class NoteItemComponent {
 	@Input() isSelected: boolean = false;
 	@Output() onSelect: EventEmitter<Note> = new EventEmitter();
 	@Output() onDelete: EventEmitter<Note> = new EventEmitter();
+
+	faTimes = faTimes;
 
 	constructor() {}
 
